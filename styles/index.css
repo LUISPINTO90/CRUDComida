@@ -1,0 +1,542 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  margin-top: 80px;
+}
+
+button {
+  margin-top: 10px;
+}
+
+h1 {
+  font-size: 38px;
+  font-weight: 900;
+  margin-bottom: 20px;
+  color: #f48057;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 500;
+  font-style: italic;
+  margin-top: 50px;
+  color: #f48057;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+b {
+  font-weight: 800;
+  color: #545454;
+  font-style: italic;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #e5e5e5;
+  z-index: 1000;
+}
+
+header img {
+  width: 300px;
+  height: auto;
+  margin-right: 10px;
+}
+
+aside {
+  width: 200px;
+  background-color: #f2f2f2;
+  border-right: 1px solid #e5e5e5;
+  padding: 10px;
+  position: fixed;
+  top: auto;
+  left: 0;
+  overflow-y: auto;
+  height: 100%;
+}
+
+nav {
+  padding: 20px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+nav li {
+  margin-bottom: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+nav a img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+nav a:hover {
+  background-color: #ddd;
+}
+
+main {
+  margin-left: 220px;
+  margin-right: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+/* Tabs Styles*/
+.tabContent {
+  display: none;
+}
+
+.tabContent.active {
+  display: block;
+}
+
+.tab-link.active {
+  background-color: #ddd;
+}
+
+/* Logo from Home*/
+.logoImg {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header img {
+    content: url("../img/logo_small.png");
+    width: 50px;
+    margin-bottom: 10px;
+  }
+
+  aside {
+    width: 100%;
+    height: auto;
+    top: auto;
+    left: auto;
+    border-right: none;
+    border-bottom: 1px solid #e5e5e5;
+    position: absolute;
+  }
+
+  nav {
+    padding: 10px;
+  }
+
+  nav a {
+    font-size: 16px;
+  }
+
+  aside img {
+    width: 50px;
+    height: auto;
+  }
+
+  main {
+    margin: 0 8px 150px 8px !important;
+    padding: 0;
+    flex-direction: row;
+  }
+
+  html {
+    max-width: 100vh;
+  }
+
+  .tabsContent {
+    margin-top: 220px;
+  }
+
+  footer {
+    margin-left: 0 !important;
+    display: none;
+  }
+
+  .logoImg {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .footer-content {
+    margin-left: 0 !important;
+  }
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-top: 1px solid #e5e5e5;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-left: 200px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-media {
+  margin-bottom: 15px;
+}
+
+.social-media a {
+  margin-right: 15px;
+}
+
+.social-media img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.social-media img:hover {
+  transform: scale(1.2);
+}
+
+.footer-content p {
+  font-size: 14px;
+  color: #545454;
+}
+
+.footer-content a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.footer-content a:hover {
+  color: #f48057;
+}
+
+/* Menu Card */
+.menu-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+    rgba(0, 0, 0, 0.05) 0px 5px 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin: 50px;
+  margin-bottom: 20px;
+  width: 300px;
+  max-height: 500px;
+  overflow: auto;
+  word-wrap: break-word;
+}
+
+.menu-card h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.menu-card p {
+  font-size: 20px;
+  color: #545454;
+  margin-bottom: 5px;
+}
+
+.menu-card ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-card li {
+  font-size: 18px;
+  color: #777;
+}
+
+.menu-card span {
+  font-weight: 700;
+  color: #f48057;
+  font-size: 18px;
+}
+
+.food-name {
+  font-weight: 900;
+  font-size: 35px !important;
+}
+
+.menu-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+@media (max-width: 600px) {
+  .menu-card {
+    width: 100%;
+  }
+}
+
+/* Button Styles */
+.add-food-button {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  background-color: #f48057;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-food-button:hover {
+  background-color: #d46c41;
+}
+
+/* Table Styles */
+.food-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-y: auto;
+  overflow-x: auto;
+  max-height: 300px;
+}
+
+@media (max-width: 500px) {
+  .food-table {
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: 300px;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+.food-table th,
+.food-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  word-wrap: break-word;
+  max-width: 200px;
+}
+
+.food-table th {
+  background-color: #f48057;
+  color: #fff;
+}
+
+.food-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.edit-button,
+.delete-button {
+  background-color: #f48057;
+  color: #fff;
+  padding: 8px 12px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  background-color: #d46c41;
+}
+
+/* Estilos para el diálogo de agregar comida */
+#agregarComidaDialog {
+  width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+    rgba(0, 0, 0, 0.05) 0px 5px 10px;
+  border: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#agregarComidaDialog h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#agregarComidaForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#agregarComidaForm label {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #555;
+}
+
+#agregarComidaForm input,
+#agregarComidaForm textarea,
+#agregarComidaForm button {
+  margin-bottom: 16px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#agregarComidaForm button {
+  background-color: #f48057;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#agregarComidaForm button:hover {
+  background-color: #d46c41;
+}
+
+/* Estilos para el diálogo de editar comida */
+#editarComidaDialog {
+  width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+    rgba(0, 0, 0, 0.05) 0px 5px 10px;
+  border: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#editarComidaDialog h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#editarComidaForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#editarComidaForm label {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #555;
+}
+
+#editarComidaForm input,
+#editarComidaForm textarea,
+#editarComidaForm button {
+  margin-bottom: 16px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#editarComidaForm button {
+  background-color: #f48057;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#editarComidaForm button:hover {
+  background-color: #d46c41;
+}
+
+/* Estilos para el diálogo de confirmación */
+#confirmarEliminarDialog {
+  width: 300px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#confirmarEliminarDialog h2 {
+  margin-bottom: 10px;
+}
+
+#confirmarEliminarDialog p {
+  margin-bottom: 20px;
+}
+
+#confirmarEliminarBtn,
+#cancelarEliminarBtn {
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+#confirmarEliminarBtn {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+}
+
+#cancelarEliminarBtn {
+  background-color: #6c757d;
+  color: #fff;
+  border: none;
+}

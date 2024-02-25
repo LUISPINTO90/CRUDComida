@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FoodCRUD</title>
+
+    <!-- Google Font Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles/index.css" />
+
+    <!-- Icon -->
+    <link rel="icon" href="./img/logo_small.png" type="image/png" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header>
+      <img src="./img/logo.png" alt="Logo" />
+    </header>
+
+    <!-- Aside -->
+    <aside>
+      <nav>
+        <ul>
+          <li>
+            <a href="#" class="tab-link" data-tab="tab1">
+              <img src="./img/house-solid.svg" alt="Home" /> Inicio
+            </a>
+          </li>
+          <li>
+            <a href="#" class="tab-link" data-tab="tab2">
+              <img src="./img/utensils-solid.svg" alt="Utensils" /> Ver
+              men&uacute;
+            </a>
+          </li>
+          <li>
+            <a href="#" class="tab-link" data-tab="tab3">
+              <img src="./img/list-check-solid.svg" alt="Checklist" />
+              Gestionar men&uacute;
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+      <div class="tabsContent">
+        <!-- Tab1 Inicio -->
+        <div class="tabContent active" id="tab1">
+          <h1>¡Bienvenido a tu restaurante favorito!</h1>
+          <p>
+            Descubre nuestro delicioso men&uacute; y realiza tus pedidos de
+            manera
+            <b>f&aacute;cil</b> y <b>r&aacute;pida</b>.
+          </p>
+          <img src="./img/logo_orange.png" class="logoImg" alt="Logo" />
+          <h2>¡Ll&eacute;guele, ll&eacute;guele!</h2>
+        </div>
+        <!-- Tab2 Ver menu -->
+        <div class="tabContent" id="tab2">
+          <h1>Menú</h1>
+          <div class="menu-cards-container"></div>
+        </div>
+        <!-- Tab3 Gestionar menu -->
+        <div class="tabContent" id="tab3">
+          <h1>Gestionar men&uacute;</h1>
+          <button class="add-food-button">Agregar comida</button>
+          <div class="table-container">
+            <table class="food-table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Descripción</th>
+                  <th>Precio</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody class="food-table-body"></tbody>
+            </table>
+          </div>
+
+          <!-- Dialog Agregar -->
+          <dialog id="agregarComidaDialog">
+            <h2>Agregar Comida</h2>
+            <form id="agregarComidaForm">
+              <label for="nombreComida">Nombre:</label>
+              <input
+                type="text"
+                id="nombreComida"
+                name="nombreComida"
+                required
+              />
+
+              <label for="descripcionComida">Descripción:</label>
+              <textarea
+                id="descripcionComida"
+                name="descripcionComida"
+                rows="3"
+                required
+              ></textarea>
+
+              <label for="precioComida">Precio:</label>
+              <input
+                type="number"
+                id="precioComida"
+                name="precioComida"
+                step="0.01"
+                required
+              />
+
+              <button type="submit">Agregar</button>
+              <button type="button" id="cerrarDialogBtn">Cancelar</button>
+            </form>
+          </dialog>
+
+          <!-- Dialog Editar -->
+          <dialog id="editarComidaDialog">
+            <h2>Editar Comida</h2>
+            <form id="editarComidaForm">
+              <input type="hidden" id="idComida" name="idComida" />
+              <label for="nombreComidaEdit">Nombre:</label>
+              <input
+                type="text"
+                id="nombreComidaEdit"
+                name="nombreComidaEdit"
+                required
+              />
+
+              <label for="descripcionComidaEdit">Descripción:</label>
+              <textarea
+                id="descripcionComidaEdit"
+                name="descripcionComidaEdit"
+                rows="3"
+                required
+              ></textarea>
+
+              <label for="precioComidaEdit">Precio:</label>
+              <input
+                type="number"
+                id="precioComidaEdit"
+                name="precioComidaEdit"
+                step="0.01"
+                required
+              />
+
+              <button type="submit">Guardar</button>
+              <button type="button" id="cerrarDialogBtnEdit">Cancelar</button>
+            </form>
+          </dialog>
+
+          <!-- Dialog Confirmar Eliminación -->
+          <dialog id="confirmarEliminarDialog">
+            <h2>Confirmar Eliminación</h2>
+            <p>¿Estás seguro de que deseas eliminar este elemento?</p>
+            <button id="confirmarEliminarBtn">Eliminar</button>
+            <button id="cancelarEliminarBtn">Cancelar</button>
+          </dialog>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="social-media">
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./img/facebook.svg" alt="Facebook" />
+          </a>
+          <a
+            href="https://www.x.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./img/x-twitter.svg" alt="Twitter" />
+          </a>
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./img/square-instagram.svg" alt="Instagram" />
+          </a>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2024 FoodCRUD. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="./src/navigation.js"></script>
+    <script src="./src/app.js" type="module"></script>
+  </body>
+</html>
