@@ -29,7 +29,7 @@ h2 {
   font-size: 28px;
   font-weight: 500;
   font-style: italic;
-  margin-top: 50px;
+  margin-top: 40px;
   color: #f48057;
 }
 
@@ -544,4 +544,99 @@ footer {
   background-color: #6c757d;
   color: #fff;
   border: none;
+}
+
+/* Checkbox and Radio Button Styles */
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 8px;
+}
+
+/* Styles for Checkbox Label */
+.checkbox-label,
+.radio-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* Styles for Checkbox Container */
+.checkbox-container,
+.radio-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Styles for Custom Checkbox */
+.checkbox-custom,
+.radio-custom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+/* Styles for Checkbox Checkmark */
+.checkbox-checkmark,
+.radio-checkmark {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background-color: #333;
+  display: none;
+}
+
+/* Styles for Checked Checkbox */
+.checkbox-custom.checked .checkbox-checkmark,
+.radio-custom.checked .radio-checkmark {
+  display: block;
+}
+
+/* Styles for Radio Button */
+.radio-custom {
+  border-radius: 50%;
+}
+
+/* Styles for Checked Radio Button */
+.radio-custom.checked .radio-checkmark {
+  display: block;
+}
+
+/* Styles for Hover and Focus Effects */
+.checkbox-custom:hover,
+.radio-custom:hover {
+  border-color: #f48057;
+}
+
+.checkbox-custom:focus,
+.radio-custom:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(244, 128, 87, 0.5);
+}
+
+select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+fieldset {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+legend {
+  color: #333;
+  margin-bottom: 10px;
 }

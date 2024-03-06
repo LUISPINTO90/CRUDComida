@@ -13,6 +13,11 @@ const agregarComidaForm = document.getElementById("agregarComidaForm");
 let nombreComidaInput = document.getElementById("nombreComida");
 let descripcionComidaInput = document.getElementById("descripcionComida");
 let precioComidaInput = document.getElementById("precioComida");
+let extrasCheckboxInputs = document.querySelectorAll('input[name="extras"]');
+let spiceLevelRadioInputs = document.querySelectorAll(
+  'input[name="spiceLevel"]'
+);
+let servingSizeSelect = document.getElementById("servingSize");
 
 // Obtén el contenedor del menú
 const menuContainer = document.querySelector(".menu-cards-container");
@@ -45,11 +50,21 @@ agregarComidaForm.addEventListener("submit", (event) => {
   let nombreComida = nombreComidaInput.value;
   let descripcionComida = descripcionComidaInput.value;
   let precioComida = precioComidaInput.value;
+  let extras = Array.from(extrasCheckboxInputs)
+    .filter((checkbox) => checkbox.checked)
+    .map((checkbox) => checkbox.value);
+  let spiceLevel =
+    Array.from(spiceLevelRadioInputs).find((radio) => radio.checked)?.value ||
+    "";
+  let servingSize = servingSizeSelect.value;
 
   let menuElement = new MenuElement(
     nombreComida,
     descripcionComida,
-    precioComida
+    precioComida,
+    extras,
+    spiceLevel,
+    servingSize
   );
 
   menuList.addElement(menuElement);
@@ -138,6 +153,21 @@ menuTable.addEventListener("click", (event) => {
       element.description;
     document.getElementById("precioComidaEdit").value = element.price;
 
+    // Set checkboxes, radio buttons, and select for editing
+    Array.from(document.querySelectorAll('input[name="extrasEdit"]')).forEach(
+      (checkbox) => {
+        checkbox.checked = element.extras.includes(checkbox.value);
+      }
+    );
+
+    Array.from(
+      document.querySelectorAll('input[name="spiceLevelEdit"]')
+    ).forEach((radio) => {
+      radio.checked = radio.value === element.spiceLevel;
+    });
+
+    document.getElementById("servingSizeEdit").value = element.servingSize;
+
     editarComidaDialog.showModal();
   }
 });
@@ -151,8 +181,15 @@ editarComidaForm.addEventListener("submit", (event) => {
     "descripcionComidaEdit"
   ).value;
   let editedPrice = document.getElementById("precioComidaEdit").value;
+  let editedExtras = Array.from(
+    document.querySelectorAll('input[name="extrasEdit"]:checked')
+  ).map((checkbox) => checkbox.value);
+  let editedSpiceLevel =
+    Array.from(
+      document.querySelectorAll('input[name="spiceLevelEdit"]:checked')
+    ).find((radio) => radio.checked)?.value || "";
+  let editedServingSize = document.getElementById("servingSizeEdit").value;
 
-  // Find the element in the menuList using its original name (stored in ID)
   let elementIndex = menuList.menu.findIndex(
     (element) => element.name === document.getElementById("idComida").value
   );
@@ -161,6 +198,9 @@ editarComidaForm.addEventListener("submit", (event) => {
   element.setName(editedName);
   element.setDescription(editedDescription);
   element.setPrice(editedPrice);
+  element.setExtras(editedExtras);
+  element.setSpiceLevel(editedSpiceLevel);
+  element.setServingSize(editedServingSize);
 
   updateDOM();
   editarComidaDialog.close();
@@ -173,6 +213,13 @@ function limpiarFormulario() {
   nombreComidaInput.value = "";
   descripcionComidaInput.value = "";
   precioComidaInput.value = "";
+  Array.from(extrasCheckboxInputs).forEach((checkbox) => {
+    checkbox.checked = false;
+  });
+  Array.from(spiceLevelRadioInputs).forEach((radio) => {
+    radio.checked = false;
+  });
+  servingSizeSelect.value = "1";
 }
 
 window.addEventListener("load", () => {

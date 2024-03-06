@@ -81,6 +81,9 @@
                   <th>Nombre</th>
                   <th>Descripción</th>
                   <th>Precio</th>
+                  <th>Extras</th>
+                  <th>Nivel de Picor</th>
+                  <th>Para cuántas personas</th>
                   <th>Acciones</th>
                 </tr>
               </thead>
@@ -117,6 +120,73 @@
                 required
               />
 
+              <fieldset>
+                <legend>
+                  Selecciona los complementos que lleva el platillo:
+                </legend>
+                <input
+                  type="checkbox"
+                  id="salsaVerde"
+                  name="extras"
+                  value="Salsa verde"
+                />
+                <label for="salsaVerde">Salsa verde</label>
+
+                <input
+                  type="checkbox"
+                  id="salsaRoja"
+                  name="extras"
+                  value="Salsa roja"
+                />
+                <label for="salsaRoja">Salsa roja</label>
+
+                <input
+                  type="checkbox"
+                  id="cremaAguacate"
+                  name="extras"
+                  value="Crema de aguacate"
+                />
+                <label for="cremaAguacate">Crema de aguacate</label>
+              </fieldset>
+
+              <fieldset>
+                <legend>Selecciona el nivel de picor del platillo:</legend>
+                <input
+                  type="radio"
+                  id="noPica"
+                  name="spiceLevel"
+                  value="No pica"
+                  required
+                />
+                <label for="noPica">No pica</label>
+
+                <input
+                  type="radio"
+                  id="suavePicor"
+                  name="spiceLevel"
+                  value="Suave picor"
+                />
+                <label for="suavePicor">Suave picor</label>
+
+                <input
+                  type="radio"
+                  id="fuertePicor"
+                  name="spiceLevel"
+                  value="Fuerte picor"
+                />
+                <label for="fuertePicor">Fuerte picor</label>
+              </fieldset>
+
+              <label for="servingSize"
+                >Seleccione para cuántas personas es el platillo:</label
+              >
+              <select id="servingSize" name="servingSize">
+                <option value="1">1 persona</option>
+                <option value="2">2 personas</option>
+                <option value="3">3 personas</option>
+                <option value="4">4 personas</option>
+              </select>
+
               <button type="submit">Agregar</button>
               <button type="button" id="cerrarDialogBtn">Cancelar</button>
             </form>
@@ -151,6 +221,73 @@
                 step="0.01"
                 required
               />
+
+              <fieldset>
+                <legend>
+                  Selecciona los complementos que lleva el platillo:
+                </legend>
+                <input
+                  type="checkbox"
+                  id="salsaVerdeEdit"
+                  name="extrasEdit"
+                  value="Salsa verde"
+                />
+                <label for="salsaVerdeEdit">Salsa verde</label>
+
+                <input
+                  type="checkbox"
+                  id="salsaRojaEdit"
+                  name="extrasEdit"
+                  value="Salsa roja"
+                />
+                <label for="salsaRojaEdit">Salsa roja</label>
+
+                <input
+                  type="checkbox"
+                  id="cremaAguacateEdit"
+                  name="extrasEdit"
+                  value="Crema de aguacate"
+                />
+                <label for="cremaAguacateEdit">Crema de aguacate</label>
+              </fieldset>
+
+              <fieldset>
+                <legend>Selecciona el nivel de picor del platillo:</legend>
+                <input
+                  type="radio"
+                  id="noPicaEdit"
+                  name="spiceLevelEdit"
+                  value="No pica"
+                  required
+                />
+                <label for="noPicaEdit">No pica</label>
+
+                <input
+                  type="radio"
+                  id="suavePicorEdit"
+                  name="spiceLevelEdit"
+                  value="Suave picor"
+                />
+                <label for="suavePicorEdit">Suave picor</label>
+
+                <input
+                  type="radio"
+                  id="fuertePicorEdit"
+                  name="spiceLevelEdit"
+                  value="Fuerte picor"
+                />
+                <label for="fuertePicorEdit">Fuerte picor</label>
+              </fieldset>
+
+              <label for="servingSizeEdit"
+                >Seleccione para cuántas personas es el platillo:</label
+              >
+              <select id="servingSizeEdit" name="servingSizeEdit">
+                <option value="1">1 persona</option>
+                <option value="2">2 personas</option>
+                <option value="3">3 personas</option>
+                <option value="4">4 personas</option>
+              </select>
 
               <button type="submit">Guardar</button>
               <button type="button" id="cerrarDialogBtnEdit">Cancelar</button>
